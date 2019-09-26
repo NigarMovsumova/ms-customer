@@ -10,4 +10,3 @@ VALUES
 ('Nigar', 'Movsumova'),
 ('Elvin', 'Makhmudov'),
 ('Zaur', 'Aliyev');
-
