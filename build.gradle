@@ -21,4 +21,5 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor('org.projectlombok:lombok')
     implementation('org.projectlombok:lombok')
+    implementation ('com.github.javafaker:javafaker:1.0.1')
 }

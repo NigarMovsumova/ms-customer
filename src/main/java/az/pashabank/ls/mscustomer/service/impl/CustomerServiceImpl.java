@@ -1,11 +1,11 @@
 package az.pashabank.ls.mscustomer.service.impl;
 
 import az.pashabank.ls.mscustomer.controller.CustomerController;
+import az.pashabank.ls.mscustomer.dao.CustomerRepository;
 import az.pashabank.ls.mscustomer.exception.NotFoundException;
 import az.pashabank.ls.mscustomer.mappers.CustomerMapper;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
-import az.pashabank.ls.mscustomer.dao.CustomerRepository;
 import az.pashabank.ls.mscustomer.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

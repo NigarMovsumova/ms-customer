@@ -1,4 +1,5 @@
 package az.pashabank.ls.mscustomer.model.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
