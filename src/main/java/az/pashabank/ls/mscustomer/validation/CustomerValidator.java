@@ -23,25 +23,25 @@ public class CustomerValidator implements
                 && isSurnameValid(customerRequest.getSurname(), context);
     }
 
-    private boolean isNameValid(String name, ConstraintValidatorContext context){
-        if (name==null){
+    private boolean isNameValid(String name, ConstraintValidatorContext context) {
+        if (name == null) {
             violationHelper.addViolation(context, "name", "Name is not valid");
             return false;
         }
 
-        if(!name.matches("[A-Z][a-z]*")){
+        if (!name.matches("[A-Z][a-z]*")) {
             violationHelper.addViolation(context, "name", "Name is not valid");
             return false;
         }
         return true;
     }
 
-    private boolean isSurnameValid(String surname, ConstraintValidatorContext context){
-        if(surname==null){
+    private boolean isSurnameValid(String surname, ConstraintValidatorContext context) {
+        if (surname == null) {
             violationHelper.addViolation(context, "surname", "Surname is not valid");
             return false;
         }
-        if (!surname.matches("[A-Z]+([ '-][a-zA-Z]+)*")){
+        if (!surname.matches("[A-Z]+([ '-][a-zA-Z]+)*")) {
             violationHelper.addViolation(context, "surname", "Surname is not valid");
             return false;
         }
