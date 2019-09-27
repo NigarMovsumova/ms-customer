@@ -21,7 +21,7 @@ public class CustomerScheduler {
         this.customerService = customerService;
     }
 
-    @Scheduled(cron = "0/15 * * * * *")
+   // @Scheduled(cron = "0/15 * * * * *")
     public void createRandomCustomers() {
         logger.info("ActionLog.createRandomCustomers.start");
         customerService.createCustomer(RandomCustomerUtil.buildRandomCustomer());
