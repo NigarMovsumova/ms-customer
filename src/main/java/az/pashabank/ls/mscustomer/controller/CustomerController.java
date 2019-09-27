@@ -55,7 +55,7 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     @ApiOperation("update a customer")
-    public void updateCustomer(@PathVariable Long id, @RequestBody @Valid CustomerDto customerDto) {
+    public void updateCustomer(@PathVariable Long id, @RequestBody CustomerDto customerDto) {
         logger.debug("Update a customer start");
         customerService.updateCustomer(id, customerDto);
         logger.debug("Update customer of id {} end", id);

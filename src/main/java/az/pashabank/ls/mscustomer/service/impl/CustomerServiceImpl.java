@@ -52,8 +52,13 @@ public class CustomerServiceImpl implements CustomerService {
         CustomerEntity customerEntity = customerRepository
                 .findById(id)
                 .orElseThrow(() -> new NotFoundException());
-        customerEntity.setName(customerDto.getName());
-        customerEntity.setSurname(customerDto.getSurname());
+
+        if(customerDto.getName()!=null){
+            customerEntity.setName(customerDto.getName());
+        }
+        if(customerDto.getSurname()!=null){
+            customerEntity.setSurname(customerDto.getSurname());
+        }
         customerRepository.save(customerEntity);
         logger.info("ActionLog.updateCustomer.end for customer with id:{}", id);
     }
