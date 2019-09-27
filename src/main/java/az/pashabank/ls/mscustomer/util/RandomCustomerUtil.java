@@ -1,6 +1,5 @@
 package az.pashabank.ls.mscustomer.util;
 
-import az.pashabank.ls.mscustomer.controller.CustomerController;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import com.github.javafaker.Faker;
 import org.slf4j.Logger;

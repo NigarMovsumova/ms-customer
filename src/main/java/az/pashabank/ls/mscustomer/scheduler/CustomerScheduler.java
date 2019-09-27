@@ -1,6 +1,5 @@
 package az.pashabank.ls.mscustomer.scheduler;
 
-import az.pashabank.ls.mscustomer.controller.CustomerController;
 import az.pashabank.ls.mscustomer.service.CustomerService;
 import az.pashabank.ls.mscustomer.util.RandomCustomerUtil;
 import org.slf4j.Logger;
