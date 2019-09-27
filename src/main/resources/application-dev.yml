@@ -6,7 +6,7 @@ spring:
     hikari:
       connection-test-query: SELECT 1
     password: admin
-    url: jdbc:postgresql://localhost:5432/customer-prod
+    url: jdbc:postgresql://localhost:5432/customer
     username: postgres
   jpa:
     hibernate:
