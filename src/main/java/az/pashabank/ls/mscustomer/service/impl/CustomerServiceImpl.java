@@ -2,6 +2,8 @@ package az.pashabank.ls.mscustomer.service.impl;
 
 import az.pashabank.ls.mscustomer.controller.CustomerController;
 import az.pashabank.ls.mscustomer.dao.CustomerRepository;
+import az.pashabank.ls.mscustomer.dao.entity.CustomerEntity;
+import az.pashabank.ls.mscustomer.exception.CustomerException;
 import az.pashabank.ls.mscustomer.exception.NotFoundException;
 import az.pashabank.ls.mscustomer.mappers.CustomerMapper;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
@@ -15,7 +17,7 @@ import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
 
@@ -48,8 +50,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Long id, CustomerDto customerDto) {
-        logger.info("ActionLog.updateCustomer.start");
-        logger.info("ActionLog.updateCustomer.end");
+        logger.info("ActionLog.updateCustomer.start for customer with id: {}", id);
+        CustomerEntity customerEntity= customerRepository.findById(id)
+                .orElseThrow(()->new NotFoundException());
+        customerEntity.setName(customerDto.getName());
+        customerEntity.setSurname(customerDto.getSurname());
+        customerRepository.save(customerEntity);
+        logger.info("ActionLog.updateCustomer.end for customer with id:{}", id);
     }
 
     @Override

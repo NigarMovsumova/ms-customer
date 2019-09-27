@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Profile("!integration")
 public class CustomerScheduler {
 
-    private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(CustomerScheduler.class);
 
     private final CustomerService customerService;
 

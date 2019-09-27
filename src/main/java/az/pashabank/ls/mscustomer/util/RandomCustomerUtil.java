@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class RandomCustomerUtil {
 
-    private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(RandomCustomerUtil.class);
 
     public static CustomerRequest buildRandomCustomer() {
         logger.info("ActionLog.buildRandomCustomer.start");
