@@ -17,24 +17,21 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
     private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
     private final CustomerRepository customerRepository;
-    private final CustomerMapper customerMapper;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository,
-                               CustomerMapper customerMapper) {
-        this.customerMapper = customerMapper;
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
     @Override
     public List<CustomerDto> getAllCustomers() {
         logger.info("ActionLog.getAllCustomers.start");
-        return customerMapper.mapEntityListToDtoList(customerRepository.findAll());
+        return CustomerMapper.INSTANCE.mapEntityListToDtoList(customerRepository.findAll());
     }
 
     @Override
     public CustomerDto getCustomerById(Long id) {
         logger.info("ActionLog.getCustomerById.start id {}", id);
-        return customerMapper.mapEntityToDto(customerRepository
+        return CustomerMapper.INSTANCE.mapEntityToDto(customerRepository
                 .findById(id)
                 .orElseThrow(() -> new NotFoundException()));
     }
@@ -42,7 +39,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void createCustomer(CustomerRequest customerRequest) {
         logger.info("ActionLog.createCustomer.start");
-        customerRepository.save(customerMapper.mapDtoToEntity(customerRequest));
+        customerRepository.save(CustomerMapper.INSTANCE.mapDtoToEntity(customerRequest));
         logger.info("ActionLog.createCustomer.success");
     }
 

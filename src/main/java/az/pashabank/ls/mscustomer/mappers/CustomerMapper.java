@@ -3,29 +3,32 @@ package az.pashabank.ls.mscustomer.mappers;
 import az.pashabank.ls.mscustomer.dao.entity.CustomerEntity;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.ReportingPolicy;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
-public class CustomerMapper {
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public abstract class CustomerMapper {
 
+    public static final CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
 
-    public CustomerDto mapEntityToDto(CustomerEntity customerEntity) {
-        return CustomerDto.builder()
-                .id(customerEntity.getId())
-                .name(customerEntity.getName())
-                .surname(customerEntity.getSurname())
-                .build();
-    }
+    @Mappings({
+            @Mapping(target = "id", source = "id"),
+            @Mapping(target = "name", source = "name"),
+            @Mapping(target = "surname", source = "surname")
+    })
+    public abstract CustomerEntity mapDtoToEntity(CustomerRequest customerRequest);
 
-    public CustomerEntity mapDtoToEntity(CustomerRequest customerDto) {
-        return CustomerEntity.builder()
-                .name(customerDto.getName())
-                .surname(customerDto.getSurname())
-                .build();
-    }
+    @Mappings({
+            @Mapping(target = "name", source = "name"),
+            @Mapping(target = "surname", source = "surname")
+    })
+    public abstract CustomerDto mapEntityToDto(CustomerEntity customerEntity);
 
     public List<CustomerDto> mapEntityListToDtoList(List<CustomerEntity> customerEntityList) {
         return customerEntityList.stream()
