@@ -10,7 +10,6 @@ import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class CustomerMapper {
@@ -18,27 +17,19 @@ public abstract class CustomerMapper {
     public static final CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
 
     @Mappings({
-            @Mapping(target = "id", source = "id"),
             @Mapping(target = "name", source = "name"),
             @Mapping(target = "surname", source = "surname")
     })
     public abstract CustomerEntity mapDtoToEntity(CustomerRequest customerRequest);
 
     @Mappings({
+            @Mapping(target = "id", source = "id"),
             @Mapping(target = "name", source = "name"),
-            @Mapping(target = "surname", source = "surname")
+            @Mapping(target = "surname", source = "surname"),
     })
     public abstract CustomerDto mapEntityToDto(CustomerEntity customerEntity);
 
-    public List<CustomerDto> mapEntityListToDtoList(List<CustomerEntity> customerEntityList) {
-        return customerEntityList.stream()
-                .map(this::mapEntityToDto)
-                .collect(Collectors.toList());
-    }
+    public abstract List<CustomerDto> mapEntityListToDtoList(List<CustomerEntity> customerEntityList);
 
-    public List<CustomerEntity> mapDtoListToEntityList(List<CustomerRequest> customerDtoList) {
-        return customerDtoList.stream()
-                .map(this::mapDtoToEntity)
-                .collect(Collectors.toList());
-    }
+    public abstract List<CustomerEntity> mapDtoListToEntityList(List<CustomerRequest> customerDtoList);
 }

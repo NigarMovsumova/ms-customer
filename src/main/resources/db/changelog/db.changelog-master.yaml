@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create Accounts table
+      author: Nigar Movsumova
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: ID
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false

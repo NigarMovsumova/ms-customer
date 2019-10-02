@@ -1,5 +1,6 @@
 package az.pashabank.ls.mscustomer.scheduler;
 
+import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.service.CustomerService;
 import az.pashabank.ls.mscustomer.util.RandomCustomerUtil;
 import org.slf4j.Logger;
@@ -23,7 +24,10 @@ public class CustomerScheduler {
     @Scheduled(cron = "0/15 * * * * *")
     public void createRandomCustomers() {
         logger.info("ActionLog.createRandomCustomers.start");
-        customerService.createCustomer(RandomCustomerUtil.buildRandomCustomer());
+        CustomerRequest customerRequest= RandomCustomerUtil.buildRandomCustomer();
+        System.out.println(customerRequest.toString());
+        customerService.createCustomer(customerRequest);
+
         logger.info("ActionLog.createRandomCustomers.success");
     }
 }
