@@ -1,11 +1,11 @@
 databaseChangeLog:
-  - logicalFilePath: liquibase/1.0/changelog-1.0.0.yml
+  - logicalFilePath: liquibase/1.0/changelog-1.1.0.yml
   - changeSet:
       id: 1
       author: Nigar Movsumova
       changes:
         - createTable:
-            tableName: accounts
+            tableName: customers
             columns:
               - column:
                   name: id
@@ -13,13 +13,16 @@ databaseChangeLog:
                   autoIncrement: true
                   constraints:
                     primaryKey: true
-              - column:
-                  name: account_name
-                  type: varchar(16)
-                  constraints:
                     nullable: false
               - column:
-                  name: customer_id
-                  type: BIGINT
+                  name: name
+                  type: varchar(48)
                   constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(96)
+                  constraints:
+                    unique: false
                     nullable: false

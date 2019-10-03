@@ -13,19 +13,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "accounts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerEntity {
+public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "customer_id")
+    private Long customerId;
 
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "account_name")
+    private String accountName;
 }

@@ -4,28 +4,24 @@ import az.pashabank.ls.mscustomer.validation.CustomerConstraint;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@CustomerConstraint
-@ApiModel("Information about customer")
-public class CustomerDto {
+@ApiModel("Information about account")
+public class AccountDto {
+    @ApiModelProperty("Id of account")
+    private Long id;
 
     @ApiModelProperty("Id of customer")
-    private Long id;
+    @NotNull
+    private String customerId;
 
     @ApiModelProperty("Name of customer")
     @NotNull
-    private String name;
-
-    @ApiModelProperty("Surname of customer")
-    @NotNull
-    private String surname;
+    private String customerName;
 }
