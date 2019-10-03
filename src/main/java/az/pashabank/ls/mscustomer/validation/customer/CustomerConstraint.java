@@ -1,4 +1,4 @@
-package az.pashabank.ls.mscustomer.validation;
+package az.pashabank.ls.mscustomer.validation.customer;
 
 import javax.validation.Constraint;
 import java.lang.annotation.Documented;

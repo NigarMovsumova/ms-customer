@@ -1,7 +1,8 @@
-package az.pashabank.ls.mscustomer.validation;
+package az.pashabank.ls.mscustomer.validation.customer;
 
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.util.CheckViolationHelper;
+import az.pashabank.ls.mscustomer.validation.customer.CustomerConstraint;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ConstraintValidator;

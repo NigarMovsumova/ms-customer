@@ -1,6 +1,5 @@
 package az.pashabank.ls.mscustomer.model.dto;
 
-import az.pashabank.ls.mscustomer.validation.CustomerConstraint;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
