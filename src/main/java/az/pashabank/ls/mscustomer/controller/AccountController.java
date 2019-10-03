@@ -35,7 +35,7 @@ public class AccountController {
 
     @GetMapping("/customer/{id}")
     @ApiOperation("get all accounts list by customer id")
-    public List<AccountDto> getAllCustomerId(@PathVariable(name = "id") Long customerId) {
+    public List<AccountDto> getAllByCustomerId(@PathVariable(name = "id") Long customerId) {
         logger.debug("Get all accounts by customer id");
         return accountService.getAllByCustomerId(customerId);
     }
@@ -48,7 +48,7 @@ public class AccountController {
 
     @PostMapping
     @ApiOperation("create a new account")
-    public void createCustomer(@RequestBody AccountRequest accountRequest) {
+    public void createAccount(@RequestBody AccountRequest accountRequest) {
         logger.debug("Create account start");
         accountService.createAccount(accountRequest);
         logger.debug("Create account end");
@@ -56,7 +56,7 @@ public class AccountController {
 
     @PutMapping("/{id}")
     @ApiOperation("update an account")
-    public void updateCustomer(@PathVariable Long id, @RequestBody AccountDto accountDto) {
+    public void updateAccount(@PathVariable Long id, @RequestBody AccountDto accountDto) {
         logger.debug("Update account start");
         accountService.updateAccount(id, accountDto);
         logger.debug("Update account of id {} end", id);
@@ -64,7 +64,7 @@ public class AccountController {
 
     @DeleteMapping("/{id}")
     @ApiOperation("delete an account")
-    public void deleteCustomer(@PathVariable Long id) {
+    public void deleteAccount(@PathVariable Long id) {
         logger.debug("Delete an account with id {}", id);
         accountService.deleteAccount(id);
         logger.debug("Delete account with id {} end", id);

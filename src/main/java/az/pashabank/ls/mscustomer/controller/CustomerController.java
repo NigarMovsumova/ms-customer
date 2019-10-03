@@ -1,5 +1,6 @@
 package az.pashabank.ls.mscustomer.controller;
 
+import az.pashabank.ls.mscustomer.dao.entity.CustomerEntity;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
 import az.pashabank.ls.mscustomer.service.CustomerService;
@@ -33,7 +34,7 @@ public class CustomerController {
 
     @GetMapping
     @ApiOperation("get all customers list")
-    public List<CustomerDto> getAllCustomers() {
+    public List<CustomerEntity> getAllCustomers() {
         logger.debug("Get all customers");
         return customerService.getAllCustomers();
     }

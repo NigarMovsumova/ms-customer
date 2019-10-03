@@ -23,9 +23,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerDto> getAllCustomers() {
+    public List<CustomerEntity> getAllCustomers() {
         logger.info("ActionLog.getAllCustomers.start");
-        return CustomerMapper.INSTANCE.mapEntityListToDtoList(customerRepository.findAll());
+        System.out.println(customerRepository.findAll());
+        return customerRepository.findAll();
     }
 
     @Override

@@ -20,8 +20,17 @@ public abstract class AccountMapper {
 
     public static final AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
 
+    @Mappings({
+            @Mapping(target = "accountName", source = "accountName"),
+            @Mapping(target = "customerId", source = "customerId"),
+    })
     public abstract AccountEntity mapDtoToEntity(AccountRequest accountRequest);
 
+    @Mappings({
+            @Mapping(target = "id", source = "id"),
+            @Mapping(target = "accountName", source = "accountName"),
+            @Mapping(target = "customerId", source = "customerId"),
+    })
     public abstract AccountDto mapEntityToDto(AccountEntity accountEntity);
 
     public abstract List<AccountDto> mapEntityListToDtoList(List<AccountEntity> accountDtoList);
