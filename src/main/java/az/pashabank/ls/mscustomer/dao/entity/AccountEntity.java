@@ -14,7 +14,6 @@ import lombok.ToString;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,7 +41,6 @@ public class AccountEntity {
     @ToString.Exclude
     @ManyToOne
     @EqualsAndHashCode.Exclude
-    @JoinColumn(name = "customer_id")
-    @JsonIgnoreProperties("accountEntitySet")
+    @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customer;
 }

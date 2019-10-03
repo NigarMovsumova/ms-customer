@@ -42,7 +42,7 @@ public class CustomerValidator implements
             violationHelper.addViolation(context, "surname", "Surname is not valid");
             return false;
         }
-        if (!surname.matches("[A-Z]+([ '-][a-zA-Z]+)*")) {
+        if (!surname.matches("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$")) {
             violationHelper.addViolation(context, "surname", "Surname is not valid");
             return false;
         }

@@ -46,5 +46,5 @@ public class CustomerEntity {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @JsonIgnoreProperties("customer")
-    private Set<AccountEntity> accountEntitySet= new HashSet<>();
+    private Set<AccountEntity> accountEntitySet;
 }
