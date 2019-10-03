@@ -1,11 +1,8 @@
 package az.pashabank.ls.mscustomer.controller;
 
 import az.pashabank.ls.mscustomer.model.AccountRequest;
-import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.AccountDto;
-import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
 import az.pashabank.ls.mscustomer.service.AccountService;
-import az.pashabank.ls.mscustomer.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -19,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -41,7 +37,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
-    public AccountDto getAccountById(@PathVariable(name="id")Long accountId){
+    public AccountDto getAccountById(@PathVariable(name = "id") Long accountId) {
         logger.debug("Get account by customer id");
         return accountService.getAccountById(accountId);
     }

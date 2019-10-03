@@ -1,10 +1,7 @@
 package az.pashabank.ls.mscustomer.service;
 
 import az.pashabank.ls.mscustomer.model.AccountRequest;
-import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.AccountDto;
-import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

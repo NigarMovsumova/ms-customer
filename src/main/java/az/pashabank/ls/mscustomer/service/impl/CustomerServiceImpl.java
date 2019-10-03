@@ -45,17 +45,17 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomer(Long id, CustomerDto customerDto) {
+    public void updateCustomer(Long id, CustomerRequest customerRequest) {
         logger.info("ActionLog.updateCustomer.start for customer with id: {}", id);
         CustomerEntity customerEntity = customerRepository
                 .findById(id)
                 .orElseThrow(() -> new NotFoundException());
 
-        if(customerDto.getName()!=null){
-            customerEntity.setName(customerDto.getName());
+        if (customerRequest.getName() != null) {
+            customerEntity.setName(customerRequest.getName());
         }
-        if(customerDto.getSurname()!=null){
-            customerEntity.setSurname(customerDto.getSurname());
+        if (customerRequest.getSurname() != null) {
+            customerEntity.setSurname(customerRequest.getSurname());
         }
         customerRepository.save(customerEntity);
         logger.info("ActionLog.updateCustomer.end for customer with id:{}", id);

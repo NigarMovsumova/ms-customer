@@ -6,7 +6,6 @@ import az.pashabank.ls.mscustomer.util.RandomCustomerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,10 +20,10 @@ public class CustomerScheduler {
         this.customerService = customerService;
     }
 
-    @Scheduled(cron = "0/15 * * * * *")
+    //@Scheduled(cron = "0/15 * * * * *")
     public void createRandomCustomers() {
         logger.info("ActionLog.createRandomCustomers.start");
-        CustomerRequest customerRequest= RandomCustomerUtil.buildRandomCustomer();
+        CustomerRequest customerRequest = RandomCustomerUtil.buildRandomCustomer();
         System.out.println(customerRequest.toString());
         customerService.createCustomer(customerRequest);
 

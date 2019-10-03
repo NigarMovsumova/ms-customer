@@ -1,14 +1,10 @@
 package az.pashabank.ls.mscustomer.service.impl;
 
 import az.pashabank.ls.mscustomer.dao.AccountRepository;
-import az.pashabank.ls.mscustomer.dao.entity.AccountEntity;
 import az.pashabank.ls.mscustomer.exception.NotFoundException;
 import az.pashabank.ls.mscustomer.mappers.AccountMapper;
-import az.pashabank.ls.mscustomer.mappers.CustomerMapper;
 import az.pashabank.ls.mscustomer.model.AccountRequest;
-import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.AccountDto;
-import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
 import az.pashabank.ls.mscustomer.service.AccountService;
 import az.pashabank.ls.mscustomer.service.CustomerService;
 import org.slf4j.Logger;
@@ -20,8 +16,8 @@ import java.util.List;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    private final AccountRepository accountRepository;
     private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
+    private final AccountRepository accountRepository;
 
 
     public AccountServiceImpl(AccountRepository accountRepository) {
@@ -38,7 +34,7 @@ public class AccountServiceImpl implements AccountService {
         return AccountMapper.INSTANCE.mapEntityToDto(
                 accountRepository.findById(accountId)
                         //TODO change with normal exception
-                .orElseThrow(()-> new NotFoundException()));
+                        .orElseThrow(() -> new NotFoundException()));
     }
 
     @Override

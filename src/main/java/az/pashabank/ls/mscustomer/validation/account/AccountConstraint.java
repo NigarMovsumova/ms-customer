@@ -1,7 +1,5 @@
 package az.pashabank.ls.mscustomer.validation.account;
 
-import az.pashabank.ls.mscustomer.validation.customer.CustomerValidator;
-
 import javax.validation.Constraint;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

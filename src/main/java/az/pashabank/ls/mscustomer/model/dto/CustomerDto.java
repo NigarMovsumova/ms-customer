@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -26,4 +27,7 @@ public class CustomerDto {
     @ApiModelProperty("Surname of customer")
     @NotNull
     private String surname;
+
+    @ApiModelProperty("Customer's accounts list")
+    private Set<AccountDto> accountDtoSet;
 }
