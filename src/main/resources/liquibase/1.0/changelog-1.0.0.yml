@@ -1,7 +1,7 @@
 databaseChangeLog:
   - logicalFilePath: liquibase/1.0/changelog-1.0.0.yml
   - changeSet:
-      id: 1
+      id: created accounts table
       author: Nigar Movsumova
       changes:
         - createTable:

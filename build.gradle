@@ -4,12 +4,18 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'checkstyle'
+
 group = 'az.pashabank.ls'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
+}
+
+checkstyle {
+    toolVersion '8.14'
 }
 
 dependencies {

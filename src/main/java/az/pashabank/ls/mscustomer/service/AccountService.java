@@ -13,7 +13,7 @@ public interface AccountService {
 
     void deleteAccount(Long id);
 
-    void updateAccount(Long id, AccountDto accountDto);
+    void updateAccount(Long id, String name);
 
     AccountDto getAccountById(Long accountId);
 }

@@ -22,6 +22,8 @@ public abstract class AccountMapper {
     @Named("mapAccountRequestToEntity")
     @Mappings({
             @Mapping(target = "name", source = "name"),
+            @Mapping(target = "balance", source = "balance"),
+            @Mapping(target = "currency", source = "currency")
     })
     public abstract AccountEntity mapDtoToEntity(AccountRequest accountRequest);
 
@@ -29,7 +31,9 @@ public abstract class AccountMapper {
     @Mappings({
             @Mapping(target = "id", source = "id"),
             @Mapping(target = "name", source = "name"),
-            @Mapping(target = "customerDto", ignore = true)
+            @Mapping(target = "customerDto",
+                    source = "customer",
+                    qualifiedByName = "mapCustomerEntityToDto")
     })
     public abstract AccountDto mapEntityToDto(AccountEntity accountEntity);
 

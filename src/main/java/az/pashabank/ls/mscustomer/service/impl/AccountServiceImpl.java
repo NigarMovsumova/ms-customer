@@ -1,6 +1,9 @@
 package az.pashabank.ls.mscustomer.service.impl;
 
 import az.pashabank.ls.mscustomer.dao.AccountRepository;
+import az.pashabank.ls.mscustomer.dao.CustomerRepository;
+import az.pashabank.ls.mscustomer.dao.entity.AccountEntity;
+import az.pashabank.ls.mscustomer.dao.entity.CustomerEntity;
 import az.pashabank.ls.mscustomer.exception.NotFoundException;
 import az.pashabank.ls.mscustomer.mappers.AccountMapper;
 import az.pashabank.ls.mscustomer.model.AccountRequest;
@@ -18,10 +21,11 @@ public class AccountServiceImpl implements AccountService {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
     private final AccountRepository accountRepository;
+    private final CustomerRepository customerRepository;
 
-
-    public AccountServiceImpl(AccountRepository accountRepository) {
+    public AccountServiceImpl(AccountRepository accountRepository, CustomerRepository customerRepository) {
         this.accountRepository = accountRepository;
+        this.customerRepository = customerRepository;
     }
 
     @Override
@@ -40,7 +44,14 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void createAccount(AccountRequest accountRequest) {
         logger.info("ActionLog.createAccount.start");
-        accountRepository.save(AccountMapper.INSTANCE.mapDtoToEntity(accountRequest));
+        CustomerEntity customerEntity = customerRepository
+                .findById(accountRequest.getCustomerId())
+                .orElseThrow(() -> new NotFoundException());
+
+        AccountEntity accountEntity = AccountMapper.INSTANCE.mapDtoToEntity(accountRequest);
+
+        accountEntity.setCustomer(customerEntity);
+        accountRepository.save(accountEntity);
         logger.info("ActionLog.createAccount.success");
 
     }
@@ -53,7 +64,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void updateAccount(Long id, AccountDto accountDto) {
-
+    public void updateAccount(Long id, String name) {
+        //TODO change exception type
+        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(() -> new NotFoundException());
+        accountEntity.setName(name);
+        accountRepository.save(accountEntity);
+        System.out.println("done");
     }
 }

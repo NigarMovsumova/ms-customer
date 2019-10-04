@@ -52,9 +52,9 @@ public class AccountController {
 
     @PutMapping("/{id}")
     @ApiOperation("update an account")
-    public void updateAccount(@PathVariable Long id, @RequestBody AccountDto accountDto) {
+    public void updateAccount(@PathVariable Long id, @RequestBody String name) {
         logger.debug("Update account start");
-        accountService.updateAccount(id, accountDto);
+        accountService.updateAccount(id, name);
         logger.debug("Update account of id {} end", id);
     }
 

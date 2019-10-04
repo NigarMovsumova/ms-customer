@@ -19,8 +19,8 @@ public class CustomerValidator implements
 
     @Override
     public boolean isValid(CustomerRequest customerRequest, ConstraintValidatorContext context) {
-        return isNameValid(customerRequest.getName(), context)
-                && isSurnameValid(customerRequest.getSurname(), context);
+        return isNameValid(customerRequest.getName(), context) &&
+                isSurnameValid(customerRequest.getSurname(), context);
     }
 
     private boolean isNameValid(String name, ConstraintValidatorContext context) {

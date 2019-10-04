@@ -30,7 +30,9 @@ public abstract class CustomerMapper {
             @Mapping(target = "id", source = "id"),
             @Mapping(target = "name", source = "name"),
             @Mapping(target = "surname", source = "surname"),
-            @Mapping(target = "accountDtoSet", source = "accountEntitySet", qualifiedByName = "mapAccountEntitySetToDtoSet")
+            @Mapping(target = "accountDtoSet",
+                    source = "accountEntitySet",
+                    qualifiedByName = "mapAccountEntitySetToDtoSet")
     })
     public abstract CustomerDto mapEntityToDto(CustomerEntity customerEntity);
 
