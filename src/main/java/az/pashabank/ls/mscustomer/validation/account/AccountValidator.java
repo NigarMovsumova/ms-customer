@@ -46,7 +46,6 @@ public class AccountValidator implements
     private boolean isCurrencyValid(String currency, ConstraintValidatorContext context) {
         if (!EnumUtils.isValidEnum(CurrencyCode.class, currency)) {
             violationHelper.addViolation(context, "currency", "Currency is not valid");
-            System.out.println("IT IS NOT VALID");
             return false;
         }
         return true;

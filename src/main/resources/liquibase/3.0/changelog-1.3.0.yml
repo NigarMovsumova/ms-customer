@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert mock accounts
+      author: Nigar Movsumova
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: account_name
+                  value: "My AZN Account"
+              - column:
+                  name: created_at
+                  value: now()
+              - column:
+                  name: updated_at
+                  value: now()
+              - column:
+                  name: customer_id
+                  value: 1
+              - column:
+                  name: currency
+                  value: "AZN"
+              - column:
+                  name: balance
+                  value: 15.00
+            tableName: accounts
+            remarks: insert initial data in accounts

@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@AccountConstraint
 @ApiModel("Information about account")
 @Builder
 public class AccountDto {

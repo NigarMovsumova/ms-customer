@@ -54,9 +54,11 @@ public class CustomerServiceImpl implements CustomerService {
         if (customerRequest.getName() != null) {
             customerEntity.setName(customerRequest.getName());
         }
+
         if (customerRequest.getSurname() != null) {
             customerEntity.setSurname(customerRequest.getSurname());
         }
+
         customerRepository.save(customerEntity);
         logger.info("ActionLog.updateCustomer.end for customer with id:{}", id);
     }
