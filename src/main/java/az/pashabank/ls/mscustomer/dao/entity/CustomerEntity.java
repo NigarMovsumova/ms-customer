@@ -23,7 +23,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = "accountEntitySet")
 public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,6 @@ public class CustomerEntity {
     private String surname;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    @EqualsAndHashCode.Exclude
     @JsonIgnoreProperties("customer")
     private Set<AccountEntity> accountEntitySet;
 }

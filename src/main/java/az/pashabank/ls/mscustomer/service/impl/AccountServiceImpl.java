@@ -30,6 +30,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountDto> getAccountsByCustomerId(Long customerId) {
+        customerRepository
+                .findById(customerId)
+                //TODO CHECK IF EXCEPTION IS OKAY
+                .orElseThrow(()-> new NotFoundException());
+
         return AccountMapper.INSTANCE.mapEntityListToDtoList(accountRepository.findAllByCustomerId(customerId));
     }
 

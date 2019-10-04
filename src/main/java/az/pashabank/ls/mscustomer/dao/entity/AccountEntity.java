@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = "customer")
 public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,7 @@ public class AccountEntity {
     @Column(name = "account_name")
     private String name;
 
-    @Column(name = "currency")
+    @Column(name = "currency", updatable = false)
     private String currency;
 
     @Column(name = "balance")
@@ -52,7 +52,6 @@ public class AccountEntity {
 
     @ToString.Exclude
     @ManyToOne
-    @EqualsAndHashCode.Exclude
     @JoinColumn(name = "customer_id", nullable = false)
     private CustomerEntity customer;
 }

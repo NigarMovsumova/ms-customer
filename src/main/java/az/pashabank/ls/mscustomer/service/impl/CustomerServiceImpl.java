@@ -25,7 +25,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<CustomerEntity> getAllCustomers() {
         logger.info("ActionLog.getAllCustomers.start");
-        System.out.println(customerRepository.findAll());
         return customerRepository.findAll();
     }
 
