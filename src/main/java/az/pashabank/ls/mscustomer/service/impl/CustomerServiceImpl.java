@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("ActionLog.getCustomerById.start id {}", id);
         return CustomerMapper.INSTANCE.mapEntityToDto(customerRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException()));
+                .orElseThrow(NotFoundException::new));
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("ActionLog.updateCustomer.start for customer with id: {}", id);
         CustomerEntity customerEntity = customerRepository
                 .findById(id)
-                .orElseThrow(() -> new NotFoundException());
+                .orElseThrow(NotFoundException::new);
 
         if (customerRequest.getName() != null) {
             customerEntity.setName(customerRequest.getName());

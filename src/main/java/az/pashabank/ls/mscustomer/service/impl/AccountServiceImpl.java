@@ -30,10 +30,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountDto> getAccountsByCustomerId(Long customerId) {
+        logger.info("ActionLog.getAccountsByCustomerId.start");
+
         customerRepository
                 .findById(customerId)
                 //TODO CHECK IF EXCEPTION IS OKAY
-                .orElseThrow(()-> new NotFoundException());
+                .orElseThrow(NotFoundException::new);
 
         return AccountMapper.INSTANCE.mapEntityListToDtoList(accountRepository.findAllByCustomerId(customerId));
     }
@@ -43,15 +45,16 @@ public class AccountServiceImpl implements AccountService {
         return AccountMapper.INSTANCE.mapEntityToDto(
                 accountRepository.findById(accountId)
                         //TODO change with normal exception
-                        .orElseThrow(() -> new NotFoundException()));
+                        .orElseThrow(NotFoundException::new));
     }
 
     @Override
     public void createAccount(AccountRequest accountRequest) {
         logger.info("ActionLog.createAccount.start");
+
         CustomerEntity customerEntity = customerRepository
                 .findById(accountRequest.getCustomerId())
-                .orElseThrow(() -> new NotFoundException());
+                .orElseThrow(NotFoundException::new);
 
         AccountEntity accountEntity = AccountMapper.INSTANCE.mapDtoToEntity(accountRequest);
 
@@ -70,9 +73,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public void updateAccount(Long id, String name) {
+        logger.info("ActionLog.updateAccount.start");
         //TODO change exception type
-        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(() -> new NotFoundException());
+        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(NotFoundException::new);
         accountEntity.setName(name);
         accountRepository.save(accountEntity);
+        logger.info("ActionLog.updateAccount.success with id: {}", id);
     }
 }

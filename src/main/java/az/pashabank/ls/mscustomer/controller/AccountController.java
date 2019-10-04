@@ -39,7 +39,7 @@ public class AccountController {
 
     @GetMapping("/{id}")
     public AccountDto getAccountById(@PathVariable(name = "id") Long accountId) {
-        logger.debug("Get account by customer id");
+        logger.debug("Get account by id");
         return accountService.getAccountById(accountId);
     }
 
