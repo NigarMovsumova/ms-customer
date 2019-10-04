@@ -32,13 +32,6 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
-    @ApiOperation("get all customers list")
-    public List<CustomerEntity> getAllCustomers() {
-        logger.debug("Get all customers");
-        return customerService.getAllCustomers();
-    }
-
     @GetMapping("/{id}")
     @ApiOperation("get customer by id")
     public CustomerDto getCustomerById(@PathVariable(name = "id") Long id) {

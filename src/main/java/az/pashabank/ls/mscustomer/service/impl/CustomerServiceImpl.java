@@ -23,12 +23,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerEntity> getAllCustomers() {
-        logger.info("ActionLog.getAllCustomers.start");
-        return customerRepository.findAll();
-    }
-
-    @Override
     public CustomerDto getCustomerById(Long id) {
         logger.info("ActionLog.getCustomerById.start id {}", id);
         return CustomerMapper.INSTANCE.mapEntityToDto(customerRepository

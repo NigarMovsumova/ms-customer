@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface CustomerService {
 
-    List<CustomerEntity> getAllCustomers();
-
     CustomerDto getCustomerById(Long id);
 
     void createCustomer(CustomerRequest customerRequest);
