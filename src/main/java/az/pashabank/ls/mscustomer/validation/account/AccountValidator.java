@@ -28,7 +28,7 @@ public class AccountValidator implements
     }
 
     private boolean isNameValid(String name, ConstraintValidatorContext context) {
-        if (name==null || !name.matches("[A-Z][a-z]*")) {
+        if (name == null || !name.matches("[A-Z][a-z]*")) {
             violationHelper.addViolation(context, "name", "Account Name is not valid");
             return false;
         }
@@ -44,7 +44,7 @@ public class AccountValidator implements
     }
 
     private boolean isCurrencyValid(String currency, ConstraintValidatorContext context) {
-        if (currency==null || !EnumUtils.isValidEnum(CurrencyCode.class, currency)) {
+        if (currency == null || !EnumUtils.isValidEnum(CurrencyCode.class, currency)) {
             violationHelper.addViolation(context, "currency", "Currency is not valid");
             return false;
         }

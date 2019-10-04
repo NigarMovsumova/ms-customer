@@ -42,6 +42,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountDto getAccountById(Long accountId) {
+        logger.info("ActionLog.getAccountById.start with id : {}", accountId);
         return AccountMapper.INSTANCE.mapEntityToDto(
                 accountRepository.findById(accountId)
                         //TODO change with normal exception
