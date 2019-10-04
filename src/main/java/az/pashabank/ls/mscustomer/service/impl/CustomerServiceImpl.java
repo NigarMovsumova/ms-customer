@@ -11,8 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class CustomerServiceImpl implements CustomerService {
     private static final Logger logger = LoggerFactory.getLogger(CustomerService.class);
@@ -25,9 +23,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDto getCustomerById(Long id) {
         logger.info("ActionLog.getCustomerById.start id {}", id);
-        return CustomerMapper.INSTANCE.mapEntityToDto(customerRepository
+        return CustomerMapper
+                .INSTANCE
+                .mapEntityToDto(customerRepository
                 .findById(id)
-                .orElseThrow(NotFoundException::new));
+                .orElseThrow(() -> new NotFoundException("customer")));
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
         logger.info("ActionLog.updateCustomer.start for customer with id: {}", id);
         CustomerEntity customerEntity = customerRepository
                 .findById(id)
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("customer"));
 
         if (customerRequest.getName() != null) {
             customerEntity.setName(customerRequest.getName());

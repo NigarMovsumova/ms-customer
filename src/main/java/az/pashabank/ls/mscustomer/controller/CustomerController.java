@@ -1,6 +1,5 @@
 package az.pashabank.ls.mscustomer.controller;
 
-import az.pashabank.ls.mscustomer.dao.entity.CustomerEntity;
 import az.pashabank.ls.mscustomer.model.CustomerRequest;
 import az.pashabank.ls.mscustomer.model.dto.CustomerDto;
 import az.pashabank.ls.mscustomer.service.CustomerService;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/customers")

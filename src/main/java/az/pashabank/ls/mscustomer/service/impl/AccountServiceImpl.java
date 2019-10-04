@@ -35,7 +35,7 @@ public class AccountServiceImpl implements AccountService {
         customerRepository
                 .findById(customerId)
                 //TODO CHECK IF EXCEPTION IS OKAY
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("customer"));
 
         return AccountMapper.INSTANCE.mapEntityListToDtoList(accountRepository.findAllByCustomerId(customerId));
     }
@@ -46,7 +46,7 @@ public class AccountServiceImpl implements AccountService {
         return AccountMapper.INSTANCE.mapEntityToDto(
                 accountRepository.findById(accountId)
                         //TODO change with normal exception
-                        .orElseThrow(NotFoundException::new));
+                        .orElseThrow(() -> new NotFoundException("account")));
     }
 
     @Override
@@ -55,7 +55,7 @@ public class AccountServiceImpl implements AccountService {
 
         CustomerEntity customerEntity = customerRepository
                 .findById(accountRequest.getCustomerId())
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new NotFoundException("customer"));
 
         AccountEntity accountEntity = AccountMapper.INSTANCE.mapDtoToEntity(accountRequest);
 
@@ -76,7 +76,9 @@ public class AccountServiceImpl implements AccountService {
     public void updateAccount(Long id, String name) {
         logger.info("ActionLog.updateAccount.start");
         //TODO change exception type
-        AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(NotFoundException::new);
+        AccountEntity accountEntity = accountRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("account"));
         accountEntity.setName(name);
         accountRepository.save(accountEntity);
         logger.info("ActionLog.updateAccount.success with id: {}", id);

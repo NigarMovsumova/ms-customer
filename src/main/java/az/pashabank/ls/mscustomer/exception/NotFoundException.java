@@ -2,9 +2,9 @@ package az.pashabank.ls.mscustomer.exception;
 
 public class NotFoundException extends CustomerException {
 
-    public NotFoundException() {
-        super("exception.ms-customer.customer-not-related-to-company",
-                "exception.ms-customer.customer-not-related-to-company");
+    public NotFoundException(String type) {
+        super("exception.ms-customer." + type + "-not-related-to-bank",
+                "exception.ms-customer." + type + "-not-related-to-bank");
     }
 
     public NotFoundException(String errorCode, String errorMessage) {

@@ -9,8 +9,8 @@ databaseChangeLog:
                   name: name
                   value: "Ayxan"
               - column:
-                - name: surname
-                  value: "Agazade"
+                  - name: surname
+                    value: "Agazade"
             tableName: customers
             remarks: insert initial data in customers
   - changeSet:
