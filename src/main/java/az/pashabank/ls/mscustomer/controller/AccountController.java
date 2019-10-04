@@ -23,7 +23,7 @@ import java.util.List;
 @RequestMapping("/accounts")
 @Api("Account Controller")
 public class AccountController {
-    private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
     private final AccountService accountService;
 
     public AccountController(AccountService accountService) {
