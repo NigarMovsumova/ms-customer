@@ -34,7 +34,6 @@ public class AccountServiceImpl implements AccountService {
 
         customerRepository
                 .findById(customerId)
-                //TODO CHECK IF EXCEPTION IS OKAY
                 .orElseThrow(() -> new NotFoundException("customer"));
 
         return AccountMapper.INSTANCE.mapEntityListToDtoList(accountRepository.findAllByCustomerId(customerId));
@@ -45,7 +44,6 @@ public class AccountServiceImpl implements AccountService {
         logger.info("ActionLog.getAccountById.start with id : {}", accountId);
         return AccountMapper.INSTANCE.mapEntityToDto(
                 accountRepository.findById(accountId)
-                        //TODO change with normal exception
                         .orElseThrow(() -> new NotFoundException("account")));
     }
 
@@ -75,7 +73,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void updateAccount(Long id, String name) {
         logger.info("ActionLog.updateAccount.start");
-        //TODO change exception type
         AccountEntity accountEntity = accountRepository
                 .findById(id)
                 .orElseThrow(() -> new NotFoundException("account"));

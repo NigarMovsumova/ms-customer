@@ -7,7 +7,6 @@ public enum CurrencyCode {
     AED("United Arab Emirates Dirham"),
     AFN("Afghanistan Afghani"),
     ALL("Albania Lek"),
-    AMD("Armenia Dram"),
     ANG("Netherlands Antilles Guilder"),
     AOA("Angola Kwanza"),
     ARS("Argentina Peso"),

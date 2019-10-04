@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 
-//TODO MAYBE DELETE THIS DTO ?
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

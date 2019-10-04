@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-//TODO VALIDATE ACCOUNT REQUEST
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
