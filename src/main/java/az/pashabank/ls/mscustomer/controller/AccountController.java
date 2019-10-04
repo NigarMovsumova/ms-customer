@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,9 +33,9 @@ public class AccountController {
 
     @GetMapping("/customer/{id}")
     @ApiOperation("get all accounts list by customer id")
-    public List<AccountDto> getAllByCustomerId(@PathVariable(name = "id") Long customerId) {
+    public List<AccountDto> getAccountsByCustomerId(@PathVariable(name = "id") Long customerId) {
         logger.debug("Get all accounts by customer id");
-        return accountService.getAllByCustomerId(customerId);
+        return accountService.getAccountsByCustomerId(customerId);
     }
 
     @GetMapping("/{id}")
@@ -44,7 +46,7 @@ public class AccountController {
 
     @PostMapping
     @ApiOperation("create a new account")
-    public void createAccount(@RequestBody AccountRequest accountRequest) {
+    public void createAccount(@RequestBody @Valid AccountRequest accountRequest) {
         logger.debug("Create account start");
         accountService.createAccount(accountRequest);
         logger.debug("Create account end");

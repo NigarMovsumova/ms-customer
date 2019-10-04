@@ -23,6 +23,7 @@ public abstract class AccountMapper {
     @Mappings({
             @Mapping(target = "name", source = "name"),
             @Mapping(target = "balance", source = "balance"),
+            @Mapping(target = "currency", source = "currency"),
             @Mapping(target = "currency", source = "currency")
     })
     public abstract AccountEntity mapDtoToEntity(AccountRequest accountRequest);

@@ -29,7 +29,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public List<AccountDto> getAllByCustomerId(Long customerId) {
+    public List<AccountDto> getAccountsByCustomerId(Long customerId) {
         return AccountMapper.INSTANCE.mapEntityListToDtoList(accountRepository.findAllByCustomerId(customerId));
     }
 
@@ -69,6 +69,5 @@ public class AccountServiceImpl implements AccountService {
         AccountEntity accountEntity = accountRepository.findById(id).orElseThrow(() -> new NotFoundException());
         accountEntity.setName(name);
         accountRepository.save(accountEntity);
-        System.out.println("done");
     }
 }
