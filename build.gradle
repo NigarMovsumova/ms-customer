@@ -4,6 +4,8 @@ plugins {
     id 'java'
 }
 
+apply plugin: 'checkstyle'
+
 group = 'az.pashabank.ls'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -12,7 +14,24 @@ repositories {
     mavenCentral()
 }
 
+checkstyle {
+    toolVersion '8.14'
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('io.springfox:springfox-swagger2:2.9.2')
+    implementation('io.springfox:springfox-swagger-ui:2.9.2')
+    runtimeOnly 'org.postgresql:postgresql'
+    
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation('org.mapstruct:mapstruct-jdk8:1.3.0.Final')
+    annotationProcessor('org.mapstruct:mapstruct-jdk8:1.3.0.Final')
+    annotationProcessor('org.mapstruct:mapstruct-processor:1.3.0.Final')
+    
+    implementation('com.github.javafaker:javafaker:1.0.1')
+    implementation('org.liquibase:liquibase-core:3.8.0')
 }

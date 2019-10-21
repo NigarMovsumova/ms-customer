@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: added create/update dates
+      author: Nigar Movsumova
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: created_at
+                  type: timestamp
+            schemaName: public
+            tableName: accounts
+        - addColumn:
+            columns:
+              - column:
+                  name: updated_at
+                  type: timestamp
+            schemaName: public
+            tableName: accounts

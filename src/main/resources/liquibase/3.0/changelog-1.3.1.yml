@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert mock customer Ayxan
+      author: Nigar Movsumova
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: name
+                  value: "Ayxan"
+              - column:
+                  - name: surname
+                    value: "Agazade"
+            tableName: customers
+            remarks: insert initial data in customers
+  - changeSet:
+      id: insert mock customer Elvin
+      author: Nigar Movsumova
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: name
+                  value: "Elvin"
+              - column:
+                  name: surname
+                  value: "Makhmudov"
+            tableName: customers
+            remarks: insert initial data in customers
+  - changeSet:
+      id: insert mock customer Zaur
+      author: Nigar Movsumova
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: name
+                  value: "Zaur"
+              - column:
+                  name: surname
+                  value: "Aliyev"
+            tableName: customers
+            remarks: insert initial data in customers
+

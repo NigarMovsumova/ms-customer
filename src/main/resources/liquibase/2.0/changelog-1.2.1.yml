@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: added currency column
+      author: Nigar Movsumova
+      changes:
+        - addColumn:
+            columns:
+              - column:
+                  name: currency
+                  type: varchar(10)
+                constraints:
+                  nullable: false
+            tableName: accounts

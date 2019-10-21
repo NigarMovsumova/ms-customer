@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - logicalFilePath: liquibase/1.0/changelog-1.1.0.yml
+  - changeSet:
+      id: created customers table
+      author: Nigar Movsumova
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(48)
+                  constraints:
+                    unique: false
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(96)
+                  constraints:
+                    unique: false
+                    nullable: false
